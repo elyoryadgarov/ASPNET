@@ -11,9 +11,9 @@ namespace Testing
         public Product GetProduct(int id);
         public Product GetProductName(string Name);
         void UpdateProduct(Product product);
-        
-     
-        
+        public void InsertProduct(Product ProductToInsert);
+        public IEnumerable<Category> GetCategories();
+        public Product AssignCategory();
 
     }
 }
