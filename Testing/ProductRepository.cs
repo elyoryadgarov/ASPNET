@@ -48,6 +48,16 @@ namespace Testing
             return product;
         }
 
+        public void DeleteProduct(Product product)
+        {
+            _conn.Execute("DELETE from REVIEWS WHERE ProductID = @id",
+                new {id = product.ProductID});
+            _conn.Execute("DELETE from SALES WHERE ProductID = @id",
+                new {id = product.ProductID});
+            _conn.Execute("DELETE from products WHERE ProductID = @id",
+                new {id = product.ProductID});
+        }
+
         public void InsertProduct(Product productToInsert)
         {
            _conn.Execute("INSERT INTO products (NAME, PRICE, CATEGORYID) VALUES (@name, @price, @categoryID);",
